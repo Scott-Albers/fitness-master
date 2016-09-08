@@ -6,12 +6,13 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "positions")
 @Data
-public class Position {
+public class Position implements Serializable {
     private int id;
     private int version;
     private float latitude;
@@ -44,4 +45,20 @@ public class Position {
     @UpdateTimestamp
     public Date getModified() {return modified;}
     public void setModified(Date modified) {this.modified = modified;}
+
+    @Column(name = "lat")
+    public float getLatitude() { return latitude;  }
+    public void setLatitude(float latitude) { this.latitude = latitude;  }
+
+    @Column(name = "lon")
+    public float getLongitude() { return longitude;  }
+    public void setLongitude(float longitude) { this.longitude = longitude;  }
+
+    @Column(name = "alt")
+    public float getAltitude() { return altitude;  }
+    public void setAltitude(float altitude) { this.altitude = altitude;  }
+
+    @Column(name = "current_time")
+    public Date getCurrent() { return current;  }
+    public void setCurrent(Date current) { this.current = current;  }
 }

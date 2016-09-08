@@ -51,4 +51,12 @@ public class Run {
     @UpdateTimestamp
     public Date getModified() {return modified;}
     public void setModified(Date modified) {this.modified = modified;}
+
+    @Column(name = "start_time")
+    public Date getStart() { return start; }
+    public void setStart(Date start) { this.start = start; }
+
+    @Column(name = "stop_time")
+    public Date getStop() { return stop; }
+    public void setStop(Date stop) { this.stop = stop; }
 }
